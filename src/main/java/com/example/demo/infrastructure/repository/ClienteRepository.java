@@ -2,9 +2,10 @@ package com.example.demo.infrastructure.repository;
 
 
 import com.example.demo.infrastructure.repository.entity.ClienteEntity;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.socialsignin.spring.data.dynamodb.repository.EnableScan;
+import org.springframework.data.repository.CrudRepository;
 
-public interface ClienteRepository extends JpaRepository<ClienteEntity, Long> {
+@EnableScan
+public interface ClienteRepository extends CrudRepository<ClienteEntity, String> {
 
-    ClienteEntity findByCpf(String cpf);
 }

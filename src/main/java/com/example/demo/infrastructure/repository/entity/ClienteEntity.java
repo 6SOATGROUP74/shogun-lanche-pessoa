@@ -1,39 +1,32 @@
 package com.example.demo.infrastructure.repository.entity;
 
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.annotation.Id;
 
-import java.util.List;
+import java.io.Serializable;
 
 @Getter
 @Setter
-@Entity
-@Table(name = "tb_cliente")
-public class ClienteEntity {
+@AllArgsConstructor
+@DynamoDBTable(tableName = "tb_pessoa")
+public class ClienteEntity implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_cliente")
-    private String idCliente;
+    @DynamoDBHashKey(attributeName = "cpf")
+    private String cpf;
 
-    @Column(name = "nome")
+    @DynamoDBAttribute(attributeName = "nome")
     private String nome;
 
-    @Column(name = "data_cadastro")
+    @DynamoDBAttribute(attributeName = "data_cadastro")
     private String dataCadastro;
 
-    @Column(name = "email")
+    @DynamoDBAttribute(attributeName = "email")
     private String email;
-
-    @Column(name = "cpf")
-    private String cpf;
 
 }

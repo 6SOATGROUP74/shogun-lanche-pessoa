@@ -16,7 +16,7 @@ public class RecuperarClienteAdapter implements RecuperarClienteAdapterPort {
 
     @Override
     public Cliente execute(String documentoCliente) {
-        return ClienteEntityMapper.INSTANCE.mapFrom(clienteRepository.findByCpf(documentoCliente));
+        return ClienteEntityMapper.INSTANCE.mapFrom(clienteRepository.findById(documentoCliente).orElse(null));
     }
 
     @Override
