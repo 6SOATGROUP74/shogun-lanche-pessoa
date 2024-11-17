@@ -13,7 +13,7 @@ import java.io.Serializable;
 @Getter
 @Setter
 @AllArgsConstructor
-@DynamoDBTable(tableName = "tb_pessoa")
+@DynamoDBTable(tableName = "tb_cliente")
 public class ClienteEntity implements Serializable {
 
     @Id

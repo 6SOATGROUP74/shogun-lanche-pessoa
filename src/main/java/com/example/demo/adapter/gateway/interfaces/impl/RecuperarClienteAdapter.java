@@ -21,7 +21,7 @@ public class RecuperarClienteAdapter implements RecuperarClienteAdapterPort {
 
     @Override
     public Cliente recuperarPorId(Long clientId) {
-        return ClienteEntityMapper.INSTANCE.mapFrom(clienteRepository.findById(clientId).get());
+        return null;
     }
 
 }

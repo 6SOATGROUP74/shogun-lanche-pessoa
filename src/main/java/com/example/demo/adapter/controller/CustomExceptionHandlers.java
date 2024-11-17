@@ -65,34 +65,4 @@ public class CustomExceptionHandlers {
         return errors;
     }
 
-
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler(CategoriaInvalidaException.class)
-    public Map<String, String> handle(CategoriaInvalidaException ex) {
-        Map<String, String> errors = new HashMap<>();
-        String errorMessage = ex.getMessage();
-        errors.put("cause", errorMessage);
-        return errors;
-    }
-
-
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    @ExceptionHandler(ProdutoNotFoundException.class)
-    public Map<String, String> handle(ProdutoNotFoundException ex) {
-        Map<String, String> errors = new HashMap<>();
-        String errorMessage = ex.getMessage();
-        errors.put("cause", errorMessage);
-        return errors;
-    }
-
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    @ExceptionHandler(PedidoNotFoundException.class)
-    public Map<String, String> handle(PedidoNotFoundException ex) {
-        Map<String, String> errors = new HashMap<>();
-        String errorMessage = ex.getMessage();
-        errors.put("cause", errorMessage);
-        return errors;
-    }
-
-
 }
