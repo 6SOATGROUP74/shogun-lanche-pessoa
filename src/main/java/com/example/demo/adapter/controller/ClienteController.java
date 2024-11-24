@@ -2,6 +2,7 @@ package com.example.demo.adapter.controller;
 
 import com.example.demo.adapter.controller.request.cliente.ClienteRequest;
 import com.example.demo.adapter.controller.request.cliente.mapper.ClienteMapper;
+import com.example.demo.adapter.controller.response.cliente.ClienteResponse;
 import com.example.demo.adapter.presenter.cliente.ClienteResponseMapper;
 import com.example.demo.core.usecase.interfaces.cliente.IncluirClienteUseCasePort;
 import com.example.demo.core.usecase.interfaces.cliente.RecuperarClienteUseCasePort;
@@ -23,13 +24,13 @@ public class ClienteController {
     }
 
     @PostMapping
-    public ResponseEntity<?> incluir(@RequestBody @Valid ClienteRequest request){
+    public ResponseEntity<ClienteResponse> incluir(@RequestBody @Valid ClienteRequest request){
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(ClienteResponseMapper.INSTANCE.mapFrom(incluirClienteUseCasePort.execute(ClienteMapper.INSTANCE.mapFrom(request))));
     }
 
     @GetMapping("/{cpf}")
-    public ResponseEntity<?> recuperar(@PathVariable("cpf") final String cpf) {
+    public ResponseEntity<ClienteResponse> recuperar(@PathVariable("cpf") final String cpf) {
         return ResponseEntity.ok()
                         .body(ClienteResponseMapper.INSTANCE.mapFrom(recuperarClienteUseCasePort.execute(cpf)));
 

@@ -16,12 +16,12 @@ public class RecuperarClienteAdapter implements RecuperarClienteAdapterPort {
 
     @Override
     public Cliente execute(String documentoCliente) {
-        return ClienteEntityMapper.INSTANCE.mapFrom(clienteRepository.findById(documentoCliente).orElse(null));
+        return ClienteEntityMapper.INSTANCE.mapFrom(clienteRepository.findByCpf(documentoCliente));
     }
 
     @Override
-    public Cliente recuperarPorId(Long clientId) {
-        return null;
+    public Cliente recuperarPorId(String clienteId) {
+        return ClienteEntityMapper.INSTANCE.mapFrom(clienteRepository.findById(clienteId).orElse(null));
     }
 
 }

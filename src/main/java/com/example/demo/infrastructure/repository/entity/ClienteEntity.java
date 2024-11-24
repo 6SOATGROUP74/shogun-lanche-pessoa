@@ -3,21 +3,23 @@ package com.example.demo.infrastructure.repository.entity;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 
-import java.io.Serializable;
+import java.util.UUID;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @DynamoDBTable(tableName = "tb_cliente")
-public class ClienteEntity implements Serializable {
+public class ClienteEntity {
 
     @Id
-    @DynamoDBHashKey(attributeName = "cpf")
+    @DynamoDBHashKey(attributeName = "id_cliente")
+    private UUID idCliente;
+
+    @Id
+    @DynamoDBAttribute(attributeName = "cpf")
     private String cpf;
 
     @DynamoDBAttribute(attributeName = "nome")

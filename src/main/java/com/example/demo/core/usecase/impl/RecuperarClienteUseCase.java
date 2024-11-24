@@ -32,9 +32,17 @@ public class RecuperarClienteUseCase implements RecuperarClienteUseCasePort {
         return result;
     }
 
-    public Cliente recuperarPorId(Long clienteId) throws ClienteNotFoundException {
+    public Cliente recuperarPorId(String clienteId) throws ClienteNotFoundException {
         logger.info("m=recuperarPorId, msg=Recuperando cliente por clienteId, clienteId={}", clienteId);
-        return recuperarClienteAdapterPort.recuperarPorId(clienteId);
+
+        final var result = recuperarClienteAdapterPort.recuperarPorId(clienteId);
+
+        if(Objects.isNull(result)){
+            logger.error("m=recuperarPorId, status=failure,  msg=Cliente não encontrado pelo id informado, clienteId={}", clienteId);
+            throw new ClienteNotFoundException("Cliente não localizado na base de dados.");
+        }
+
+        return result;
     }
     
 }

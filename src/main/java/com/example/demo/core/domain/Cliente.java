@@ -2,7 +2,7 @@ package com.example.demo.core.domain;
 
 public class Cliente {
 
-    private Long idCliente;
+    private String idCliente;
     private String nome;
     private String cpf;
     private String email;
@@ -19,7 +19,7 @@ public class Cliente {
     public Cliente() {
     }
 
-    public Cliente(String nome, Long idCliente, String cpf, String email) {
+    public Cliente(String nome, String idCliente, String cpf, String email) {
         this.nome = nome;
         this.idCliente = idCliente;
         this.cpf = cpf;
@@ -37,11 +37,11 @@ public class Cliente {
         this.cpf = cpf;
     }
 
-    public Long getIdCliente() {
+    public String getIdCliente() {
         return idCliente;
     }
 
-    public void setIdCliente(Long idCliente) {
+    public void setIdCliente(String idCliente) {
         this.idCliente = idCliente;
     }
 
