@@ -1,12 +1,9 @@
 package com.example.demo.core.usecase.impl;
 
 import com.example.demo.adapter.gateway.interfaces.cliente.RecuperarClienteAdapterPort;
-import com.example.demo.adapter.gateway.interfaces.impl.ClienteCommon;
+import com.example.demo.ClienteCommon;
 import com.example.demo.adapter.gateway.interfaces.impl.IncluirClienteAdapter;
-import com.example.demo.adapter.gateway.interfaces.impl.RecuperarClienteAdapter;
 import com.example.demo.core.domain.Cliente;
-import com.example.demo.infrastructure.repository.ClienteRepository;
-import com.example.demo.infrastructure.repository.entity.ClienteEntity;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,7 +13,6 @@ import org.mockito.MockitoAnnotations;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
 

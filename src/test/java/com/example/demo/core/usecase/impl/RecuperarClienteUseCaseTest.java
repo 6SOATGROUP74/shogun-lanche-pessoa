@@ -1,6 +1,6 @@
 package com.example.demo.core.usecase.impl;
 
-import com.example.demo.adapter.gateway.interfaces.impl.ClienteCommon;
+import com.example.demo.ClienteCommon;
 import com.example.demo.adapter.gateway.interfaces.impl.RecuperarClienteAdapter;
 import com.example.demo.core.domain.Cliente;
 import org.junit.jupiter.api.AfterEach;

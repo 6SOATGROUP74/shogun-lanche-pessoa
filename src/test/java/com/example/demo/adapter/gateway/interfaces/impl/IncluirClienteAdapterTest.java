@@ -1,5 +1,6 @@
 package com.example.demo.adapter.gateway.interfaces.impl;
 
+import com.example.demo.ClienteCommon;
 import com.example.demo.core.domain.Cliente;
 import com.example.demo.infrastructure.repository.ClienteRepository;
 import com.example.demo.infrastructure.repository.entity.ClienteEntity;
