@@ -2,6 +2,7 @@ package com.example.demo.infrastructure.repository.entity;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBIndexHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,8 +19,7 @@ public class ClienteEntity {
     @DynamoDBHashKey(attributeName = "id_cliente")
     private UUID idCliente;
 
-    @Id
-    @DynamoDBAttribute(attributeName = "cpf")
+    @DynamoDBIndexHashKey(globalSecondaryIndexName = "cpf-index")
     private String cpf;
 
     @DynamoDBAttribute(attributeName = "nome")

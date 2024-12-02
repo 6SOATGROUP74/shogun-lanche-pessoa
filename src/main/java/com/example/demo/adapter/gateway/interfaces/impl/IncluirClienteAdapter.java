@@ -5,6 +5,7 @@ import com.example.demo.adapter.gateway.interfaces.cliente.IncluirClienteAdapter
 import com.example.demo.infrastructure.repository.ClienteRepository;
 import com.example.demo.infrastructure.repository.presenter.ClienteEntityMapper;
 import lombok.AllArgsConstructor;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 @Component

@@ -4,4 +4,5 @@ import com.example.demo.core.domain.Cliente;
 
 public interface RecuperarClienteUseCasePort {
     Cliente execute(String documentoCliente);
+    Cliente recuperarPorId (String clienteId);
 }

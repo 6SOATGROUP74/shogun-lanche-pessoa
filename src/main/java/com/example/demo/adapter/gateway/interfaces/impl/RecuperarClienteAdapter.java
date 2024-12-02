@@ -8,6 +8,9 @@ import com.example.demo.infrastructure.repository.presenter.ClienteEntityMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.UUID;
+import java.util.logging.Logger;
+
 @Component
 @AllArgsConstructor
 public class RecuperarClienteAdapter implements RecuperarClienteAdapterPort {
@@ -16,12 +19,12 @@ public class RecuperarClienteAdapter implements RecuperarClienteAdapterPort {
 
     @Override
     public Cliente execute(String documentoCliente) {
-        return ClienteEntityMapper.INSTANCE.mapFrom(clienteRepository.findByCpf(documentoCliente));
+        return ClienteEntityMapper.INSTANCE.mapFrom(clienteRepository.findByCpf(documentoCliente).orElse(null));
     }
 
     @Override
     public Cliente recuperarPorId(String clienteId) {
-        return ClienteEntityMapper.INSTANCE.mapFrom(clienteRepository.findById(clienteId).orElse(null));
+        return ClienteEntityMapper.INSTANCE.mapFrom(clienteRepository.findById(UUID.fromString(clienteId)).orElse(null));
     }
 
 }

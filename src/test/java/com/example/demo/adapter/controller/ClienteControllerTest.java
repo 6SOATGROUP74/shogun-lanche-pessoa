@@ -17,6 +17,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import java.util.List;
+import java.util.UUID;
 
 import static com.example.demo.ClienteCommon.asJsonString;
 import static org.junit.jupiter.api.Assertions.*;
@@ -93,14 +94,14 @@ class ClienteControllerTest {
 
         ClienteRequest clienteRequest = ClienteCommon.factoryClienteRequest();
 
-        when(recuperarClienteUseCasePort.execute(anyString()))
+        when(recuperarClienteUseCasePort.recuperarPorId(anyString()))
                 .thenReturn(ClienteCommon.factoryCliente());
 
-        mockMvc.perform(get("/v1/clientes/12312321")
+        mockMvc.perform(get("/v1/clientes/" + UUID.randomUUID().toString())
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
         verify(recuperarClienteUseCasePort, times(1))
-                .execute(anyString());
+                .recuperarPorId(anyString());
     }
 
     @Test
@@ -108,14 +109,14 @@ class ClienteControllerTest {
 
         ClienteRequest clienteRequest = ClienteCommon.factoryClienteRequest();
 
-        when(recuperarClienteUseCasePort.execute(anyString()))
+        when(recuperarClienteUseCasePort.recuperarPorId(anyString()))
                 .thenThrow(ClienteNotFoundException.class);
 
-        mockMvc.perform(get("/v1/clientes/12312321")
+        mockMvc.perform(get("/v1/clientes/" + UUID.randomUUID().toString())
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound());
         verify(recuperarClienteUseCasePort, times(1))
-                .execute(anyString());
+                .recuperarPorId(anyString());
     }
 
 

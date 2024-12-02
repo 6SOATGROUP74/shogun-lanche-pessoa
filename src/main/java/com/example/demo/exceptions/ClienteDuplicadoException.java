@@ -6,7 +6,4 @@ public class ClienteDuplicadoException extends RuntimeException {
         super(message);
     };
 
-    public ClienteDuplicadoException(final String message, final Throwable cause){
-        super(message, cause);
-    };
 }

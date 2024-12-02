@@ -11,6 +11,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.util.Optional;
+import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.anyString;
@@ -38,7 +39,10 @@ class RecuperarClienteAdapterTest {
 
     @Test
     void devePermitirRecuperarUmclientePorCpf(){
-        when(repository.findByCpf(anyString())).thenReturn(new ClienteEntity());
+
+        final var response = new ClienteEntity();
+        response.setIdCliente(UUID.randomUUID());
+        when(repository.findByCpf(anyString())).thenReturn(Optional.of(response));
 
         final var result = adapter.execute("");
         assertThat(result).isNotNull().isInstanceOf(Cliente.class);
@@ -48,22 +52,24 @@ class RecuperarClienteAdapterTest {
 
     @Test
     void devePermitirRecuperarUmclienteId(){
-        when(repository.findById(anyString())).thenReturn(Optional.of(new ClienteEntity()));
 
-        final var result = adapter.recuperarPorId("");
+        final var response = new ClienteEntity();
+        response.setIdCliente(UUID.randomUUID());
+        when(repository.findById(any())).thenReturn(Optional.of(response));
+
+        final var result = adapter.recuperarPorId(UUID.randomUUID().toString());
         assertThat(result).isNotNull().isInstanceOf(Cliente.class);
-        verify(repository, times(1)).findById(anyString());
+        verify(repository, times(1)).findById(any());
 
     }
 
     @Test
     void deveRetornoNullParaIdNaoExistentes(){
-        when(repository.findById(anyString())).thenReturn(Optional.empty());
+        when(repository.findById(any())).thenReturn(Optional.empty());
 
-        final var result = adapter.recuperarPorId("");
+        final var result = adapter.recuperarPorId(UUID.randomUUID().toString());
         assertThat(result).isNull();
-        verify(repository, times(1)).findById(anyString());
+        verify(repository, times(1)).findById(any());
 
     }
-
 }

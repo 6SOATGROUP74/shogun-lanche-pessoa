@@ -32,6 +32,7 @@ public class RecuperarClienteUseCase implements RecuperarClienteUseCasePort {
         return result;
     }
 
+    @Override
     public Cliente recuperarPorId(String clienteId) throws ClienteNotFoundException {
         logger.info("m=recuperarPorId, msg=Recuperando cliente por clienteId, clienteId={}", clienteId);
 

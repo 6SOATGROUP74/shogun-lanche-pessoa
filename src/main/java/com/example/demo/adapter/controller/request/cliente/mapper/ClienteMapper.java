@@ -12,5 +12,4 @@ public interface ClienteMapper {
     ClienteMapper INSTANCE = Mappers.getMapper(ClienteMapper.class);
 
     Cliente mapFrom(ClienteRequest clienteRequest);
-    ClienteResponse mapFrom(Cliente cliente);
 }

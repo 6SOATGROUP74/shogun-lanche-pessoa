@@ -19,13 +19,6 @@ public class Cliente {
     public Cliente() {
     }
 
-    public Cliente(String nome, String idCliente, String cpf, String email) {
-        this.nome = nome;
-        this.idCliente = idCliente;
-        this.cpf = cpf;
-        this.email = email;
-    }
-
     public String getCpf() {
         if(cpf != null) {
             return cpf.replaceAll("\\D", "");
@@ -61,14 +54,4 @@ public class Cliente {
         this.email = email;
     }
 
-    @Override
-    public String toString() {
-        return "Cliente{" +
-                "idCliente=" + idCliente +
-                ", nome='" + nome + '\'' +
-                ", cpf='" + cpf + '\'' +
-                ", email='" + email + '\'' +
-                ", dataCadastro='" + dataCadastro + '\'' +
-                '}';
-    }
 }

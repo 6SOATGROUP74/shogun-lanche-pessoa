@@ -30,10 +30,11 @@ public class ClienteController {
                         incluirClienteUseCasePort.execute(ClienteMapper.INSTANCE.mapFrom(request))));
     }
 
-    @GetMapping("/{cpf}")
-    public ResponseEntity<ClienteResponse> recuperar(@PathVariable("cpf") final String cpf) {
+
+    @GetMapping("/{clienteId}")
+    public ResponseEntity<ClienteResponse> recuperarClienteId(@PathVariable("clienteId") final String clienteId) {
         return ResponseEntity.ok()
-                        .body(ClienteResponseMapper.INSTANCE.mapFrom(recuperarClienteUseCasePort.execute(cpf)));
+                .body(ClienteResponseMapper.INSTANCE.mapFrom(recuperarClienteUseCasePort.recuperarPorId(clienteId)));
 
     }
 }
