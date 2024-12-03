@@ -12,6 +12,7 @@ Solucionar o problema, a lanchonete irá investir em um sistema de autoatendimen
  <img src="https://github.com/igusvs/shogun-lanches-challenge/blob/main/docs/arquitetura_k8s-Infra%20K8s.jpg" style="max-width: 100%;">
 </details>
 
+
 ## Arquitetura 
 <details>
   <summary>Arquitetura</summary>
