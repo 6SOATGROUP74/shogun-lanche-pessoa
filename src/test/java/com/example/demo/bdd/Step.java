@@ -15,7 +15,7 @@ public class Step {
 
     private Response response;
     private ClienteResponse clienteResponse;
-    private final String ENDPOINT = "http://localhost:8080";
+    private final String ENDPOINT = "http://a8e4464fb23794b62a3d7f8e6351c8b8-100722653.us-east-1.elb.amazonaws.com";
     private String cpf;
 
 
@@ -43,7 +43,7 @@ public class Step {
 
         response = given()
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
-                .when().get(ENDPOINT.concat("/v1/clientes/48265391854"));
+                .when().get(ENDPOINT.concat("/v1/clientes/48c3e733-e0d1-4a55-822e-9aecb3043e8b"));
 
     }
 
