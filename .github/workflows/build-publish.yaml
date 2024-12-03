@@ -103,6 +103,12 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
+          build-args: |
+            "AWS_ACCESS_KEY2=${{ secrets.AWS_ACCESS_KEY2 }}"
+            "AWS_SECRET_ACCESS2=${{ secrets.AWS_SECRET_ACCESS2 }}"
+            
+            ARG AWS_ACCESS_KEY2
+            ARG AWS_SECRET_ACCESS2
           push: true
           tags: 6soatgroup74/shogun-lanches-cliente:prod
 
