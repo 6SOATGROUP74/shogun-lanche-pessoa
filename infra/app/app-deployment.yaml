@@ -14,7 +14,6 @@ spec:
       labels:
         app: app-cliente-pod
     spec:
-      serviceAccountName: dynamodb-access-sa
       containers:
         - name: app-cliente-container
           image: 6soatgroup74/shogun-lanches-cliente:prod
